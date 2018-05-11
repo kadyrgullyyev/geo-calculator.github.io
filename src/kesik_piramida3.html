@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/bootsrap.min.css">
+    <style>
+        .formula {
+            margin-top: 20px;
+        }
+        .chozuji {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .answers p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <button class="btn btn-info" @click.prevent="showSolver">Solver</button>
+        <button class="btn btn-info" @click.prevent="showFormulas">Formulas</button>
+
+        <form class="chozuji" action="#" method="POST" role="form" v-if="solver">
+            <div class="form-group">
+                <label for="">n</label>
+                <input type="number" class="form-control" v-model="n" placeholder="enter n">
+            </div>
+
+            <div class="form-group">
+                <label for="">l</label>
+                <input type="number" class="form-control" v-model="l" placeholder="enter l">
+            </div>
+
+            <div class="form-group">
+                <label for="">a</label>
+                <input type="number" class="form-control" v-model="a" placeholder="enter a">
+            </div>
+
+            <div class="form-group">
+                <label for="">b</label>
+                <input type="number" class="form-control" v-model="b" placeholder="enter b">
+            </div>
+        </form>
+
+        <div class="answers" v-if="solver">
+            <p>
+                Lateral area = <span>{{ outer_area }}</span>
+            </p>
+            <p>
+                Total area = <span>{{ area }}</span>
+            </p>
+        </div>
+
+        <div class="row" v-if="!solver">
+            <div class="col-md-4">
+                <img src="../images/kesik_piramida3/1.png" class="formula">
+            </div>
+            <div class="col-md-4">
+                <img src="../images/kesik_piramida3/2.png" class="formula">
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                solver: true,
+                outer_area: '',
+                area: '',
+                n: '',
+                l: '',
+                a: '',
+                b: ''
+            },
+            watch: {
+                n() {
+                    this.n = parseInt(this.n);
+                    this.solve();
+                },
+                l() {
+                    this.l = parseInt(this.l);
+                    this.solve();
+                },
+                a() {
+                    this.a = parseInt(this.a);
+                    this.solve();
+                },
+                b() {
+                    this.b = parseInt(this.b);
+                    this.solve();
+                },
+            },
+            methods: {
+                showSolver() {
+                    this.solver = true
+                },
+                showFormulas() {
+                    this.solver = false
+                },
+                solve() {
+                    this.outer_area = (this.n * this.a + this.n * this.b) * this.l / 2;
+
+                    let s1 = this.n * Math.pow(this.a, 2) / 4 * Math.tan((180 / this.n * Math.PI) / 180);
+                    let s2 = this.n * Math.pow(this.b, 2) / 4 * Math.tan((180 / this.n * Math.PI) / 180);
+
+                    this.area = this.outer_area + s1 + s2;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

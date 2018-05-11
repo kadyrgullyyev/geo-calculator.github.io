@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootsrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <div :class="{'body': true, 'black-bg': modal}">
+
+            <div class="custom-modal" v-if="modal">
+                <button class="btn btn-danger btn-close" @click="hideModal()">X</button>
+                <iframe :src="src" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Geo-Calculator</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Main Page</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container">
+                <h1 id="geo-h1" style="font-family: baumans;">Geo-Calculator</h1>
+                <div class="salam">
+                        <iframe style="border:0;" height="500" src="calculator/index.html"></iframe>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="row">
+
+                            <!-- #Circle -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Circle</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click="showAylaw1()">
+                                                    <img src="images/aylaw1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click="showAylaw2()">
+                                                    <img src="images/aylaw2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click="showAylaw3()">
+                                                    <img src="images/aylaw3.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click="showAylaw4()">
+                                                    <img src="images/aylaw4.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Circle END -->
+
+                            <!-- #Square -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Square</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click="showDortburchlyk1()">
+                                                    <img src="images/dortburch1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click="showDortburchlyk2()">
+                                                    <img src="images/dortburch2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click="showDortburchlyk3()">
+                                                    <img src="images/dortburch3.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Dortburch END -->
+
+                            <!-- #Ellipse -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Ellipse</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showEllipse1()">
+                                                    <img src="images/ellipse1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Ellipse END -->
+
+                            <!-- #Rectangle -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Rectangle</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showRectangle1()">
+                                                    <img src="images/gonuburchly_dortburchluk.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Rectangle END -->
+
+                            <!-- #Ring -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Ring</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showHalka1()">
+                                                    <img src="images/halka1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showHalka2()">
+                                                    <img src="images/halka2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Ring END -->
+
+                            <!-- #Cut Cone -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Cut Cone</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKesikKonus1()">
+                                                    <img src="images/kesik_konus1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKesikKonus2()">
+                                                    <img src="images/kesik_konus2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKesikKonus3()">
+                                                    <img src="images/kesik_konus3.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKesikKonus4()">
+                                                    <img src="images/kesik_konus4.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Cut Cone END -->
+
+                            <!-- #Cut Pyramid -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Cut Pyramid</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKesikPiramida1()">
+                                                    <img src="images/kesik_piramida1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKesikPiramida2()">
+                                                    <img src="images/kesik_piramida2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKesikPiramida3()">
+                                                    <img src="images/kesik_piramida3.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Cut Pyramid END -->
+
+                            <!-- #Cone -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Cone</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKonus1()">
+                                                    <img src="images/konus1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKonus2()">
+                                                    <img src="images/konus2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Cone END -->
+
+                            <!-- #Multi Angle -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Multi Angle</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKopburchlyk1()">
+                                                    <img src="images/kopburchluk1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKopburchlyk2()">
+                                                    <img src="images/kopburchluk2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Multi Angle END -->
+
+                            <!-- #Cube -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Cube</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showCube1()">
+                                                    <img src="images/cube1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Cube END -->
+
+                            <!-- #Quadrilateral -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Quadrilateral</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showKwadrat1()">
+                                                    <img src="images/kwadrat1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Kwadrat END -->
+
+                            <!-- #Parallellepiped -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Parallelepiped</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showParallelepiped1()">
+                                                    <img src="images/parallelepiped.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Parallellepiped END -->
+
+                            <!-- #Parallelogram -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Parallelogram</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showParallelogram1()">
+                                                    <img src="images/parallelogram1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Parallelogram END -->
+
+                            <!-- #Pyramid -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Pyramid</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showPyramid1()">
+                                                    <img src="images/piramida1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showPyramid2()">
+                                                    <img src="images/piramida2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Pyramid END -->
+
+                            <!-- #Prism -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Prism</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showPrizm1()">
+                                                    <img src="images/prizma1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showPrizm2()">
+                                                    <img src="images/prizma2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Prism END -->
+
+                            <!-- #Romb -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Romb</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showRomb1()">
+                                                    <img src="images/romb1.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showRomb2()">
+                                                    <img src="images/romb2.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <a href="#" @click.prevent="showRomb3()">
+                                                    <img src="images/romb3.png" class="menu-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- #Romb END -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                modal: false,
+                src: ''
+            },
+            methods: {
+                showAylaw1() {
+                    this.src = 'src/aylaw1.html';
+                    this.modal = true;
+                },
+                showAylaw2() {
+                    this.src = 'src/aylaw2.html';
+                    this.modal = true;
+                },
+                showAylaw3() {
+                    this.src = 'src/aylaw3.html';
+                    this.modal = true;
+                },
+                showAylaw4() {
+                    this.src = 'src/aylaw4.html';
+                    this.modal = true;
+                },
+                showDortburchlyk1() {
+                    this.src = 'src/dortburchlyk1.html';
+                    this.modal = true;
+                },
+                showDortburchlyk2() {
+                    this.src = 'src/dortburchlyk2.html';
+                    this.modal = true;
+                },
+                showDortburchlyk3() {
+                    this.src = 'src/dortburchlyk3.html';
+                    this.modal = true;
+                },
+                showEllipse1() {
+                    this.src = 'src/ellipse1.html';
+                    this.modal = true;
+                },
+                showRectangle1() {
+                    this.src = 'src/rectangle1.html';
+                    this.modal = true;
+                },
+                showHalka1() {
+                    this.src = 'src/halka1.html';
+                    this.modal = true;
+                },
+                showHalka2() {
+                    this.src = 'src/halka2.html';
+                    this.modal = true;
+                },
+                showKesikKonus1() {
+                    this.src = 'src/kesik_konus1.html';
+                    this.modal = true;
+                },
+                showKesikKonus2() {
+                    this.src = 'src/kesik_konus2.html';
+                    this.modal = true;
+                },
+                showKesikKonus3() {
+                    this.src = 'src/kesik_konus3.html';
+                    this.modal = true;
+                },
+                showKesikKonus4() {
+                    this.src = 'src/kesik_konus4.html';
+                    this.modal = true;
+                },
+                showKesikPiramida1() {
+                    this.src = 'src/kesik_piramida1.html';
+                    this.modal = true;
+                },
+                showKesikPiramida2() {
+                    this.src = 'src/kesik_piramida2.html';
+                    this.modal = true;
+                },
+                showKesikPiramida3() {
+                    this.src = 'src/kesik_piramida3.html';
+                    this.modal = true;
+                },
+                showKonus1() {
+                    this.src = 'src/konus1.html';
+                    this.modal = true;
+                },
+                showKonus2() {
+                    this.src = 'src/konus2.html';
+                    this.modal = true;
+                },
+                showKopburchlyk1() {
+                    this.src = 'src/kopburchlyk1.html';
+                    this.modal = true;
+                },
+                showKopburchlyk2() {
+                    this.src = 'src/kopburchlyk2.html';
+                    this.modal = true;
+                },
+                showCube1() {
+                    this.src = 'src/kub1.html';
+                    this.modal = true;
+                },
+                showKwadrat1() {
+                    this.src = 'src/kwadrat1.html';
+                    this.modal = true;
+                },
+                showParallelepiped1() {
+                    this.src = 'src/parallelepiped1.html';
+                    this.modal = true;
+                },
+                showParallelogram1() {
+                    this.src = 'src/parallelogram1.html';
+                    this.modal = true;
+                },
+                showPyramid1() {
+                    this.src = 'src/piramida1.html';
+                    this.modal = true;
+                },
+                showPyramid2() {
+                    this.src = 'src/piramida2.html';
+                    this.modal = true;
+                },
+                showPrizm1() {
+                    this.src = 'src/prizma1.html';
+                    this.modal = true;
+                },
+                showPrizm2() {
+                    this.src = 'src/prizma2.html';
+                    this.modal = true;
+                },
+                showRomb1() {
+                    this.src = 'src/romb1.html';
+                    this.modal = true;
+                },
+                showRomb2() {
+                    this.src = 'src/romb2.html';
+                    this.modal = true;
+                },
+                showRomb3() {
+                    this.src = 'src/romb3.html';
+                    this.modal = true;
+                },
+                hideModal() {
+                    this.modal = false;
+                    this.src = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

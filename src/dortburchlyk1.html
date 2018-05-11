@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/bootsrap.min.css">
+    <style>
+        .formula {
+            margin-top: 20px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .chozuji {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .answers p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <button class="btn btn-info" @click.prevent="showSolver">Solver</button>
+        <button class="btn btn-info" @click.prevent="showFormulas">Formulas</button>
+
+        <form class="chozuji" action="#" method="POST" role="form" v-if="solver">
+            <div class="form-group">
+                <label for="">d1</label>
+                <input type="number" class="form-control" v-model="d1" placeholder="enter d1">
+            </div>
+
+            <div class="form-group">
+                <label for="">d2</label>
+                <input type="number" class="form-control" v-model="d2" placeholder="enter d2">
+            </div>
+
+            <div class="form-group">
+                <label for="">α˚</label>
+                <input type="number" class="form-control" v-model="alpha" placeholder="enter α˚">
+            </div>
+        </form>
+
+        <div class="answers" v-if="solver">
+            <p>
+                Area = <span>{{ area }}</span>
+            </p>
+        </div>
+
+        <div class="row" v-if="!solver">
+            <div class="col-md-4">
+                Area: <img src="../images/dortburchlyk/1.png" class="formula">
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                solver: true,
+                alpha: '',
+                d1: '',
+                d2: '',
+                area: '',
+            },
+            watch: {
+                alpha() {
+                    this.solve();
+                },
+                d1() {
+                    this.solve();
+                },
+                d2() {
+                    this.solve();
+                },
+            },
+            methods: {
+                showSolver() {
+                    this.solver = true
+                },
+                showFormulas() {
+                    this.solver = false
+                },
+                solve() {
+                    this.area = this.d1 * this.d2 / 2 * Math.sin(this.alpha * Math.PI / 180);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

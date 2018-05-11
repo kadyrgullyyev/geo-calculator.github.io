@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/bootsrap.min.css">
+    <style>
+        .formula {
+            margin-top: 20px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .chozuji {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .answers p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <button class="btn btn-info" @click.prevent="showSolver">Solver</button>
+        <button class="btn btn-info" @click.prevent="showFormulas">Formulas</button>
+
+        <form class="chozuji" action="#" method="POST" role="form" v-if="solver">
+            <div class="form-group">
+                <label for="">a</label>
+                <input type="number" class="form-control" v-model="a" placeholder="enter a">
+            </div>
+
+            <div class="form-group">
+                <label for="">b</label>
+                <input type="number" class="form-control" v-model="b" placeholder="enter b">
+            </div>
+
+            <div class="form-group">
+                <label for="">c</label>
+                <input type="number" class="form-control" v-model="c" placeholder="enter c">
+            </div>
+
+            <div class="form-group">
+                <label for="">d</label>
+                <input type="number" class="form-control" v-model="d" placeholder="enter d">
+            </div>
+
+            <div class="form-group">
+                <label for="">d1</label>
+                <input type="number" class="form-control" v-model="d1" placeholder="enter d1">
+            </div>
+
+            <div class="form-group">
+                <label for="">d2</label>
+                <input type="number" class="form-control" v-model="d2" placeholder="d2 giriz">
+            </div>
+        </form>
+
+        <div class="answers" v-if="solver">
+            <p>
+                Area = <span>{{ area }}</span>
+            </p>
+        </div>
+
+        <div class="row" v-if="!solver">
+            <div class="col-md-4">
+                Area: <img src="../images/dortburchlyk3/1.png" class="formula">
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                solver: true,
+                area: '',
+                a: '',
+                b: '',
+                c: '',
+                d: '',
+                d1: '',
+                d2: ''
+            },
+            watch: {
+                a() {
+                    this.a = parseInt(this.a);
+                    this.solve();
+                },
+                b() {
+                    this.b = parseInt(this.b);
+                    this.solve();
+                },
+                c() {
+                    this.c = parseInt(this.c);
+                    this.solve();
+                },
+                d() {
+                    this.d = parseInt(this.d);
+                    this.solve();
+                },
+                d1() {
+                    this.d1 = parseInt(this.d1);
+                    this.solve();
+                },
+                d2() {
+                    this.d2 = parseInt(this.d2);
+                    this.solve();
+                }
+            },
+            methods: {
+                showSolver() {
+                    this.solver = true
+                },
+                showFormulas() {
+                    this.solver = false
+                },
+                solve() {
+                    let first = 4 * Math.pow(this.d1, 2) * Math.pow(this.d2, 2);
+                    let second = Math.pow(this.b, 2) + Math.pow(this.d, 2) - Math.pow(this.a, 2) - Math.pow(this.c, 2);
+                    this.area = 1/4 * Math.sqrt(first - Math.pow(second, 2));
+                }
+            }
+        });
+    </script>
+</body>
+</html>
